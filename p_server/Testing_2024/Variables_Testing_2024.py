@@ -22,7 +22,7 @@ from email.mime.text import MIMEText        #Allows e-mail sending
 import smtplib                              #Allows e-mail sending
 import pprint
 import random
-from Tkinter import Tk
+# from Tkinter import Tk
 import thread
 from xml.etree import ElementTree as ET
 from decimal import Decimal
