@@ -2002,19 +2002,19 @@ def program(dummy,diff_time_delay,button,html_title):
             ##### FTP! (or local output) :) #####
             """
             print "writing directly to server"
-            fg = open('var/www/predictionmarketodds.com/'+html_title,'w')
+            fg = open('/root/EBO-Test/var/www/predictionmarketodds.com/'+html_title,'w')
             fg.write(str(finalwinner_HTML_string))
             fg.close()
             print "PrecictionMarketOdds.com... Successfully uploaded!"
             """
             print "writing to server"
-            fg = open('var/www/178.62.65.243/'+html_title,'w')
+            fg = open('/root/EBO-Test/var/www/178.62.65.243/'+html_title,'w')
             fg.write(str(finalwinner_HTML_string))
             fg.close()
             print "Mirror 178.62.65.243... Also Success! (Unless immediately followed by error message)"
 
             print "writing to server"
-            fg = open('var/www/electionbettingodds.com/'+html_title,'w')
+            fg = open('/root/EBO-Test/var/www/electionbettingodds.com/'+html_title,'w')
             fg.write(str(finalwinner_HTML_string))
             fg.close()
             print "ElectionBettingOdds.com... Also Success! (Unless immediately followed by error message)"
