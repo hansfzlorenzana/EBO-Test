@@ -27,9 +27,9 @@ def import_module(path, modname):
 
 try:
     # TODO - use import_module()
-    eboconfig = imp.load_source("eboconfig", "temp_server/eboconfig.py")
+    eboconfig = imp.load_source("eboconfig", "/root/EBO-Test/p_server/eboconfig.py")
 except:
-    logging.error("Need a valid temp_server/eboconfig.py file. See temp_server/eboconfig.py.example for reference.")
+    logging.error("Need a valid /root/EBO-Test/p_server/eboconfig.py file. See /root/EBO-Test/p_server/eboconfig.py.example for reference.")
     raise
 
 # From Stack Overflow. Putting this here to assist in debugging. We can find better ways when we clean up.
@@ -179,8 +179,8 @@ def config_sanity_check():
                     )
 config_sanity_check()
 
-data_file_system = import_module('temp_server/', 'data_file_system')
-render_html = import_module('temp_server/', 'render_html')
+data_file_system = import_module('/root/EBO-Test/p_server/', 'data_file_system')
+render_html = import_module('/root/EBO-Test/p_server/', 'render_html')
 
 AVERAGE = 'AVERAGE' # Works as a "market" for the purpose of these files
 WEIGHTED_AVERAGE = 'WEIGHTED_AVERAGE' # Works as a "market" for the purpose of these files
@@ -232,8 +232,8 @@ else:
 logging.debug("now: %s", now)
 
 # Create empty chart file if it doesn't exist.
-if not os.path.exists('temp_server/'+my_root+'/WIN_chart_data'+my_ticker+'.txt'):
-    open('temp_server/'+my_root+'/WIN_chart_data'+my_ticker+'.txt', 'a').close()
+if not os.path.exists('/root/EBO-Test/p_server/'+my_root+'/WIN_chart_data'+my_ticker+'.txt'):
+    open('/root/EBO-Test/p_server/'+my_root+'/WIN_chart_data'+my_ticker+'.txt', 'a').close()
 
 if USE_WEIGHTED_AVERAGES:
     data_history = history_file_read_weighted_average()
@@ -515,10 +515,10 @@ def scrape_smarkets():
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36",
         }
 
-        SMARKETS_TEMP_PATH = "temp_server/temp"
+        SMARKETS_TEMP_PATH = "/root/EBO-Test/p_server/temp"
         SMARKETS_GZ_FNAME = os.path.join(SMARKETS_TEMP_PATH, "smarkets-oddsfeed.xml.gz")
         SMARKETS_XML_FNAME = os.path.join(SMARKETS_TEMP_PATH, "smarkets-oddsfeed.xml")
-        SMARKETS_CACHE_GZ_FNAME = "temp_server/cached/smarkets-oddsfeed.xml.gz"
+        SMARKETS_CACHE_GZ_FNAME = "/root/EBO-Test/p_server/cached/smarkets-oddsfeed.xml.gz"
 
         # TODO - We could possibly just requests.get the gz file,
         # put the body into a StringIO "file-like" object, send that
@@ -1774,7 +1774,7 @@ def program(dummy,diff_time_delay,button,html_title):
                 logging.debug("formatted_WIN_chart_data %s", formatted_WIN_chart_data)
                 
                 # writing new chart data to file
-                fy = open('temp_server/'+my_root+'/WIN_chart_data_full'+my_ticker+'.txt','a')
+                fy = open('/root/EBO-Test/p_server/'+my_root+'/WIN_chart_data_full'+my_ticker+'.txt','a')
                 # NOTE - make sure this is combined data at this point. this goes in the chart to display to user.
                 if not SKIP_WRITING_HISTORY:
                     fy.write(str(formatted_WIN_chart_data))
@@ -1782,7 +1782,7 @@ def program(dummy,diff_time_delay,button,html_title):
                 logging.debug("test1")
                 if (float(data_counter/12)).is_integer() == 1:
                     try:
-                        fy = open('temp_server/'+my_root+'/WIN_chart_data'+my_ticker+'.txt','a')
+                        fy = open('/root/EBO-Test/p_server/'+my_root+'/WIN_chart_data'+my_ticker+'.txt','a')
                         if not SKIP_WRITING_HISTORY:
                             fy.write(str(formatted_WIN_chart_data))
                         fy.close()
@@ -1790,11 +1790,11 @@ def program(dummy,diff_time_delay,button,html_title):
                         pass
             logging.debug("test2")
             if data_counter != 1:
-                fz = open('temp_server/'+my_root+'/WIN_chart_data'+my_ticker+'.txt','r')
+                fz = open('/root/EBO-Test/p_server/'+my_root+'/WIN_chart_data'+my_ticker+'.txt','r')
                 WIN_ingested_data = fz.read()
                 fz.close()
             else:
-                fz = open('temp_server/'+my_root+'/WIN_chart_data_full'+my_ticker+'.txt','r')
+                fz = open('/root/EBO-Test/p_server/'+my_root+'/WIN_chart_data_full'+my_ticker+'.txt','r')
                 WIN_ingested_data = fz.read()
                 fz.close()        
             logging.debug("test3")
@@ -1940,10 +1940,10 @@ def program(dummy,diff_time_delay,button,html_title):
             # ... "Nomination odds are from Betfair." - Keeping this around since it was hanging around before this cleanup, commented out.
 
             #~# Import nav bars from text file
-            fa = open('temp_server/Nav_bar.txt','r')
+            fa = open('/root/EBO-Test/p_server/Nav_bar.txt','r')
             Nav_bar = fa.read()
             fa.close()
-            fc = open('temp_server/Chart_nav_bar.txt','r')
+            fc = open('/root/EBO-Test/p_server/Chart_nav_bar.txt','r')
             Chart_nav_bar = fc.read()
             fc.close()
 
