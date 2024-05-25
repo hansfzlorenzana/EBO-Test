@@ -55,7 +55,7 @@ def scrape_predictit():
             total = sum(costs)
             return total
         predictit_open_interest = getTotalOpenInterest(PredictIt_volume_URL)
-        predictit_volume = getTotalOpenInterest(PredictIt_volume_URL)
+        predictit_volume = getTotalVolume(PredictIt_volume_URL)
         #adjusting for peculiarities of Pred volume reporting
         predictit_volume = predictit_volume # / (len(PredictIt_manual_entry) / 2)
         predictit_open_interest = predictit_open_interest
