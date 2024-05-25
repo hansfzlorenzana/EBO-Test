@@ -28,8 +28,8 @@ socket.setdefaulttimeout(8)
 import subprocess
 
 input_file_paths = [
-    "temp_server/RepublicanVicePresident_2024/WIN_chart_dataRepublicanVicePresident_2024.txt",
-    "temp_server/RepublicanVicePresident_2024/WIN_chart_data_fullRepublicanVicePresident_2024.txt"
+    "/temp_server/RepublicanVicePresident_2024/WIN_chart_dataRepublicanVicePresident_2024.txt",
+    "/temp_server/RepublicanVicePresident_2024/WIN_chart_data_fullRepublicanVicePresident_2024.txt"
 ]
 
 def add_candidate_column_chart(input_file_path):
