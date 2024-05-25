@@ -1,0 +1,1 @@
+Command '['curl', '-H', 'Cookie: bfsd=ts=$(date +%s)000|st=p; betexPtk=betexCurrency%3DUSD%7EbetexTimeZone%3DAmerica%2FNew_York%7EbetexRegion%3DGBR%7EbetexLocale%3Den', 'https://www.betfair.com/exchange/politics/marketactivity?id=1.107664930&selectionId=1171623']' returned non-zero exit status 35

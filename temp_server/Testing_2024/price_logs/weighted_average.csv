@@ -1,3 +1,4 @@
-data_counter,unix_time,year,month,day,hour,minute,second,timezone,volume,open_interest,Stefanik,Noem,TimScott,Ramaswamy
+data_counter,unix_time,year,month,day,hour,minute,second,timezone,volume,open_interest,Stefanik,Noem,TimScott,Ramaswamy,Haley,Lake,Donalds,DeSantis,Kennedy,Carson,Vance
 1,1716652857,2024,5,26,0,0,57,PST,26003215,26003215,0.045,0.0165,0.245,0.044
 2,1716652944,2024,5,26,0,2,24,PST,26003215,0,0.045,0.0165,0.245,0.044
+3,1716654605,2024,5,26,0,30,5,PST,26003715,0,0.045,0.0165,0.25,0.044,0.042,0.002,0.022,0.013,0.0215,0.0795,0.0895

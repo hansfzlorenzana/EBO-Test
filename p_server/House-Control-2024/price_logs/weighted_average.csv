@@ -1,0 +1,3 @@
+data_counter,unix_time,year,month,day,hour,minute,second,timezone,volume,DEM,REP
+1,1716638884,2024,5,25,20,8,4,PST,106527,0.565,0.435
+2,1716644969,2024,5,25,21,49,29,PST,106527,0.565,0.435
