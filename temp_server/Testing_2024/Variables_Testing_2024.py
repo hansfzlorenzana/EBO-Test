@@ -97,13 +97,13 @@ MARKET_LINKS = {
 
 ###########HUMAN EDITED#############
 USED_MARKETS = [
-    # MARKET_BETFAIR,
+    MARKET_BETFAIR,
     MARKET_PREDICTIT,
     # # #MARKET_POLYMARKET,
-    # MARKET_SMARKETS,
+    MARKET_SMARKETS,
     #MARKET_FTX,
     #MARKET_POLYMARKET_CLOB,
-    # MARKET_POLYMARKET_NEW,
+    MARKET_POLYMARKET_NEW,
 ]
 my_ticker = "Testing_2024" #MUST be in the title of "price_log" file
 my_html_address = "Testing_2024" #program automatically inserts ".html"
@@ -161,16 +161,16 @@ Smarkets_manual_entry = [
 # PredictIt 1st col format is generally just "lastname". In the raw, it's what's in <ShortName></ShortName>
 PredictIt_manual_entry = [
         ("Stefanik","Stefanik",""),
-        # ("Noem","Noem",""),
-        # ("Scott","TimScott",""),
-        # ("Ramaswamy","Ramaswamy",""),
-        # ("Haley","Haley",""),
-        # ("Lake","Lake",""),
-        # ("Donalds","Donalds",""),
-        # ("DeSantis","DeSantis",""),
-        # ("RFK Jr.","Kennedy",""),
-        # (None,"Carson",""),
-        # (None,"Vance",""),
+        ("Noem","Noem",""),
+        ("Scott","TimScott",""),
+        ("Ramaswamy","Ramaswamy",""),
+        ("Haley","Haley",""),
+        ("Lake","Lake",""),
+        ("Donalds","Donalds",""),
+        ("DeSantis","DeSantis",""),
+        ("RFK Jr.","Kennedy",""),
+        (None,"Carson",""),
+        (None,"Vance",""),
         ]
 
 # For Polymarket, find the market ID by searching the url: 

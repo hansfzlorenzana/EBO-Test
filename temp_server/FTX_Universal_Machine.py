@@ -158,6 +158,11 @@ BOOTSTRAPPED_MARKET_VOLUMES_LAST_QUARTER = {
 if 'BOOTSTRAPPED_MARKET_VOLUMES_LAST_QUARTER' not in locals():
     BOOTSTRAPPED_MARKET_VOLUMES_LAST_QUARTER = {}
 
+# Added May 25
+if 'BOOTSTRAPPED_MARKET_OPEN_INTEREST_LAST_QUARTER' not in locals():
+    BOOTSTRAPPED_MARKET_OPEN_INTEREST_LAST_QUARTER = {}
+###
+
 def config_sanity_check():
     # Make sure that the second column (the value that is basically used as an "ID" for the candidate) is consistent across all markets.
     # This is particularly important now because one of the USED_MARKETS will be arbitrarily chosen to represent the csv columns.
@@ -194,13 +199,13 @@ history_data_set = data_file_system.HistoryDataFileSet(
 # Commenting out for production obviously
 #history_data_set.test_history()
 
-def history_file_write_for_average(data_counter, unix_time, local_time, odds_data, volume, manual_entry):
+def history_file_write_for_average(data_counter, unix_time, local_time, odds_data, volume, open_interest, manual_entry): # Added May 25 - added open_interest
     if not SKIP_WRITING_HISTORY:
-        history_data_set.write_for_csv_name(AVERAGE, data_counter, unix_time, local_time, odds_data, volume)
+        history_data_set.write_for_csv_name(AVERAGE, data_counter, unix_time, local_time, odds_data, volume, open_interest) # Added May 25 - added open_interest
 
-def history_file_write_for_weighted_average(data_counter, unix_time, local_time, odds_data, volume, manual_entry):
+def history_file_write_for_weighted_average(data_counter, unix_time, local_time, odds_data, volume, open_interest, manual_entry): # Added May 25 - added open_interest
     if not SKIP_WRITING_HISTORY:
-        history_data_set.write_for_csv_name(WEIGHTED_AVERAGE, data_counter, unix_time, local_time, odds_data, volume)
+        history_data_set.write_for_csv_name(WEIGHTED_AVERAGE, data_counter, unix_time, local_time, odds_data, volume, open_interest) # Added May 25 - added open_interest
 
 def history_file_read_average():
     return history_data_set.read_for_csv_name(AVERAGE, timedelta(days=7), unix_time)
@@ -267,6 +272,7 @@ CIRCUIT_BREAKER_ODDS_SUMMED_THRESHOLD = .2
 
 def scrape_betfair():
     scrape_failed = False
+    betfair_open_interest = 0  # Added May 25 - added this for consistency
 
     ### Scraping raw
     try:
@@ -319,7 +325,8 @@ def scrape_betfair():
         Betfair_exchanges_by_runner_name = {}
         betfair_volume = 0
 
-    return scrape_failed, Betfair_exchanges_by_runner_name, betfair_volume
+
+    return scrape_failed, Betfair_exchanges_by_runner_name, betfair_volume, betfair_open_interest # Added May 25 - betfair_open_interest
 
 def scrape_predictit():
     scrape_failed = False
@@ -361,9 +368,28 @@ def scrape_predictit():
                 costs.append(foo['openInterest'])
             total = sum(costs)
             return total
-        predictit_volume = getTotalOpenInterest(PredictIt_volume_URL)
+        # Added May 25 - function to get the total volume
+        def getTotalVolume(url):
+            if USE_CACHED_RESPONSES:
+                content = open('cached/PredictItTotalVolume', 'r').read()
+                json_data = json.loads(content)
+            else:
+                resp = requests.get(url)
+                json_data = json.loads(resp.content)
+                if SET_CACHED_RESPONSES:
+                    open('cached/PredictItTotalVolume', 'w').write(resp.content)
+            costs = []
+            if isinstance(json_data, unicode) or isinstance(json_data, str):
+                raise FTXUniversalException('Error getting PredictIt Open Interest: ' + repr(json_data))
+            for foo in json_data:
+                costs.append(foo['totalSharesTraded'])
+            total = sum(costs)
+            return total
+        predictit_open_interest = getTotalOpenInterest(PredictIt_volume_URL) #Changed the variable name to store open interest May 25
+        predictit_volume = getTotalVolume(PredictIt_volume_URL) # Change May 25 - changed function
         #adjusting for peculiarities of Pred volume reporting
         predictit_volume = predictit_volume # / (len(PredictIt_manual_entry) / 2)
+        predictit_open_interest = predictit_open_interest # Added May 25 - to store the open interest
     except Exception,e:
         warning_message = "Error scraping PredictIt (may try to recover with other markets)"
 
@@ -380,11 +406,13 @@ def scrape_predictit():
 
         parsable_PredictIt_WINNER_raw = ''
         predictit_volume = 0
+        predictit_open_interest = 0 # Added May 25
 
-    return scrape_failed, parsable_PredictIt_WINNER_raw, predictit_volume
+    return scrape_failed, parsable_PredictIt_WINNER_raw, predictit_volume, predictit_open_interest #Added May 25 - predictit_open_interest
 
 def scrape_ftx():
     scrape_failed = False
+    ftx_open_interest = 0  # Added May 25 - added this for consistency
 
     try:
         def getBidAsk(cand_FULL_name):
@@ -465,11 +493,12 @@ def scrape_ftx():
 
         ftx_scraped_data = {}
 
-    return scrape_failed, ftx_scraped_data
+    return scrape_failed, ftx_scraped_data, ftx_open_interest # Added May 25 - added ftx_open_interest
 
 def scrape_smarkets():
     scrape_failed = False
-
+    smarkets_open_interest = 0  # Added May 25 - added this for consistency
+    
     # Scraping Smarkets
     try:
 
@@ -566,10 +595,11 @@ def scrape_smarkets():
         smarkets_volume = 0
         smarkets_contracts_by_name = {}
 
-    return scrape_failed, smarkets_volume, smarkets_contracts_by_name
+    return scrape_failed, smarkets_volume, smarkets_contracts_by_name, smarkets_open_interest # Added May 25 - added open interest
 
 def scrape_polymarket_new():
     scrape_failed = False
+    polymarket_open_interest = 0  # Added May 25 - added this for consistency
 
     # Scraping Polymarket (Direct, Clob API and Gamma API)
     polymarket_contracts_by_id = {}
@@ -681,10 +711,11 @@ def scrape_polymarket_new():
         polymarket_contracts_by_id = {}
         polymarket_volume = 0
 
-    return scrape_failed, polymarket_contracts_by_id, polymarket_volume
+    return scrape_failed, polymarket_contracts_by_id, polymarket_volume, polymarket_open_interest # Added May 25 - added open interest
 
 def scrape_kalshi():
     scrape_failed = False
+    kalshi_open_interest = 0  # Added May 25 - added this for consistency
 
     try:
         if USE_CACHED_RESPONSES:
@@ -728,7 +759,7 @@ def scrape_kalshi():
 
         kalshi_scraped_data = {}
 
-    return scrape_failed, kalshi_scraped_data
+    return scrape_failed, kalshi_scraped_data, kalshi_open_interest # Added May 25 - added open_interest
 
 ###### Betfair ######
 def parse_betfair_odds(Betfair_exchanges_by_runner_name, cand_FULL_name):
@@ -1001,8 +1032,10 @@ def parse_kalshi_odds(kalshi_scraped_data, cand_FULL_name):
         return {
             'Candidate_found': False,
         }
-
-
+    
+####################
+###### VOLUME ######
+####################
 ### Betfair ###
 def parse_betfair_volume(betfair_volume):
     return betfair_volume
@@ -1035,6 +1068,34 @@ def parse_kalshi_volume(kalshi_scraped_data):
             volume += kalshi_scraped_data[Kalshi_manual_entry[x][0]]['volume']
     return volume
 
+########################
+#### OPEN INTEREST #####
+######################## Added parse functions for open interest for each market
+### Betfair ###
+def parse_betfair_open_interest(betfair_open_interest):
+    return betfair_open_interest
+
+### Smarkets ###
+def parse_smarkets_open_interest(smarkets_open_interest):
+    return smarkets_open_interest
+
+### PredictIt ###
+def parse_predictit_open_interest(predictit_open_interest):
+    return predictit_open_interest
+
+### FTX ###
+def parse_ftx_open_interest(ftx_open_interest):
+    return ftx_open_interest
+
+### Polymarket NEW ###
+def parse_polymarket_new_open_interest(polymarket_open_interest):
+    return polymarket_open_interest
+
+### Kalshi ###
+def parse_kalshi_open_interest(kalshi_open_interest):
+    return kalshi_open_interest
+#################################
+
 # "recent" is in regard to trying to recover from failed markets.
 def has_recent_data(history):
     SCRAPE_RECOVERY_THRESHOLD = timedelta(seconds=0, minutes=0, hours=8, days=0)
@@ -1046,18 +1107,21 @@ def has_recent_data(history):
 
 scrape_failures = {}
 
+##########################
+##### CHANGED MAY 25 #####
+########################## Added the open interest variables in line with the addition of the open interests on the scrape functions
 if MARKET_BETFAIR in USED_MARKETS:
-    scrape_failures[MARKET_BETFAIR], Betfair_exchanges_by_runner_name, betfair_volume = scrape_betfair()
+    scrape_failures[MARKET_BETFAIR], Betfair_exchanges_by_runner_name, betfair_volume, betfair_open_interest = scrape_betfair()
 if MARKET_PREDICTIT in USED_MARKETS:
-    scrape_failures[MARKET_PREDICTIT], parsable_PredictIt_WINNER_raw, predictit_volume = scrape_predictit()
+    scrape_failures[MARKET_PREDICTIT], parsable_PredictIt_WINNER_raw, predictit_volume, predictit_open_interest = scrape_predictit()
 if MARKET_FTX in USED_MARKETS:
-    scrape_failures[MARKET_FTX], ftx_scraped_data = scrape_ftx()
+    scrape_failures[MARKET_FTX], ftx_scraped_data, ftx_open_interest = scrape_ftx()
 if MARKET_SMARKETS in USED_MARKETS:
-    scrape_failures[MARKET_SMARKETS], smarkets_volume, smarkets_contracts_by_name = scrape_smarkets()
+    scrape_failures[MARKET_SMARKETS], smarkets_volume, smarkets_contracts_by_name, smarkets_open_interest = scrape_smarkets()
 if MARKET_POLYMARKET_NEW in USED_MARKETS:
-    scrape_failures[MARKET_POLYMARKET_NEW], polymarket_contracts_by_id, polymarket_volume = scrape_polymarket_new()
+    scrape_failures[MARKET_POLYMARKET_NEW], polymarket_contracts_by_id, polymarket_volume, polymarket_open_interest = scrape_polymarket_new()
 if MARKET_KALSHI in USED_MARKETS:
-    scrape_failures[MARKET_KALSHI], kalshi_scraped_data = scrape_kalshi()
+    scrape_failures[MARKET_KALSHI], kalshi_scraped_data, kalshi_open_interest = scrape_kalshi()
 
 # ex:
 # scrape_failures = {MARKET_BETFAIR: True, MARKET_SMARKETS: False}
@@ -1119,16 +1183,19 @@ def program(dummy,diff_time_delay,button,html_title):
     # What comes straight from the market's server. Used for writing to history, and
     # for finding corrected_market_volumes
     market_volumes = {}
+    market_open_interests = {} # Added May 25
 
     # The median(-ish) of the most recent market volumes in history and the
     # current live value. Tries to avoids crazy values coming from the market's
     # servers. Used for display and calculations.
     corrected_market_volumes = {}
+    corrected_market_open_interests = {} # Added May 25
 
     # The difference between the corrected market volumes and what we find in the CSVs
     # from about a quarter year ago (similarly corrected for crazines) or the
     # BOOTSTRAPPED_MARKET_VOLUMES_LAST_QUARTER
     quarterly_market_volumes = {}
+    quarterly_market_open_interests = {} # Added May 25
 
     # NOTE - winner data for each market, before averaging it out and stuff
     finalwinner_odds_tuples = None
@@ -1220,6 +1287,31 @@ def program(dummy,diff_time_delay,button,html_title):
         if current_market == MARKET_KALSHI:
             market_volumes[MARKET_KALSHI] = parse_kalshi_volume(kalshi_scraped_data)
 
+        ####################
+        ### ADDED May 25 ###
+        ####################
+        # Find OPEN INTEREST from the market's server. This is the raw value we'll write to the
+        # csv. We'll use corrected_market_open_interests for display and calculating
+        # weights, etc.
+        if current_market == MARKET_BETFAIR:
+            market_open_interests[MARKET_BETFAIR] =  parse_betfair_open_interest(betfair_open_interest)
+
+        if current_market == MARKET_SMARKETS:
+            market_open_interests[MARKET_SMARKETS] = parse_smarkets_open_interest(smarkets_open_interest)
+
+        if current_market == MARKET_PREDICTIT:
+            market_open_interests[MARKET_PREDICTIT] = parse_predictit_open_interest(predictit_open_interest)
+
+        if current_market == MARKET_FTX:
+            market_open_interests[MARKET_FTX] = parse_ftx_open_interest(ftx_open_interest)
+
+        if current_market == MARKET_POLYMARKET_NEW:
+            market_open_interests[MARKET_POLYMARKET_NEW] = parse_polymarket_new_open_interest(polymarket_open_interest)
+
+        if current_market == MARKET_KALSHI:
+            market_open_interests[MARKET_KALSHI] = parse_kalshi_open_interest(kalshi_open_interest)
+        ####################
+
         # Find a decent current market volume by sampling some of of the most
         # recent values: The current one coming from the market's server, and
         # and the most recent few items from the CSV. Try to find a good value
@@ -1228,12 +1320,36 @@ def program(dummy,diff_time_delay,button,html_title):
             market_data_history[current_market].get_past_volumes(unix_time, timedelta(days=0), 4)
             + [market_volumes[current_market]]
         )
+        
+        ####################
+        ### ADDED May 25 ###
+        ####################
+        # Find a decent current market OI by sampling some of of the most
+        # recent values: The current one coming from the market's server, and
+        # and the most recent few items from the CSV. Try to find a good value
+        # from among them.
+        corrected_market_open_interests[current_market] = get_corrected_market_value(
+            market_data_history[current_market].get_past_open_interests(unix_time, timedelta(days=0), 4)
+            + [market_volumes[current_market]]
+        )
+        ####################
+
 
         if corrected_market_volumes[current_market] is None:
             if market_data_history[current_market].has_data():
                 raise FTXUniversalException("Can't find a valid market value for right now, for " + current_market)
             else:
                 raise FTXUniversalException("Can't find a valid market value for right now, for " + current_market + ". This is the first run for this market. The server must be telling us that the volume is 0.")
+        
+        ####################
+        ### ADDED May 25 ###
+        ####################
+        if corrected_market_open_interests[current_market] is None:
+            if market_data_history[current_market].has_data():
+                raise FTXUniversalException("Can't find a valid market value for right now, for " + current_market)
+            else:
+                raise FTXUniversalException("Can't find a valid market value for right now, for " + current_market + ". This is the first run for this market. The server must be telling us that the open interest is 0.")
+        ####################
 
         if current_market in BOOTSTRAPPED_MARKET_VOLUMES_LAST_QUARTER:
             logging.info("quarterly_market_volumes: Using BOOTSTRAPPED value for %s", current_market)
@@ -1269,6 +1385,46 @@ def program(dummy,diff_time_delay,button,html_title):
             # Don't crash the first run (when the csv has no data) The quarterly
             # volume is 0 at this point.
             quarterly_market_volumes[current_market] = 0
+
+        ####################
+        ### ADDED May 25 ###
+        ####################
+        if current_market in BOOTSTRAPPED_MARKET_OPEN_INTEREST_LAST_QUARTER:
+            logging.info("quarterly_market_open_interests: Using BOOTSTRAPPED value for %s", current_market)
+            # The race hasn't been running for a quarter yet, and we have a "bootstrapped" value
+            # set to an estimated volume as of a quarter before data started getting collected.
+            # Use that along with the current volume (for which we presume to have a reasonable
+            # value now) to determine the quarterly volume. The values can get wonky over time,
+            # even removing the crazy outliers, so if it's negative just call it zero.
+            quarterly_market_open_interests[current_market] = max(
+                0, corrected_market_open_interests[current_market] - BOOTSTRAPPED_MARKET_OPEN_INTEREST_LAST_QUARTER[current_market]
+            )
+        elif market_data_history[current_market].has_data():
+            logging.info("quarterly_market_open_interests: Using normal calculation for %s", current_market)
+
+            # Find a decent market volume from one quarter year ago (or as far back as we can get) by sampling multiple
+            # consecutive volumes from a quarter year ago from the CSV. Try to find a good value from among them.
+            market_open_interest_last_quarter = get_corrected_market_value(
+                market_data_history[current_market].get_past_open_interests(unix_time, QUARTER_YEAR, 5)
+            )
+
+            if market_open_interest_last_quarter is None:
+                raise FTXUniversalException("Can't find a valid market value for a quarter year ago, for " + current_market)
+
+            # Now that we presumably have reasonable volumes for now and (up to) one quarter year
+            # ago, determine a quarterly volume. The values can get wonky over time,
+            # even removing the crazy outliers, so if it's negative just call it zero.
+            quarterly_market_open_interests[current_market] = max(
+                0, corrected_market_open_interests[current_market] - market_open_interest_last_quarter
+            )
+        else:
+            logging.info("quarterly_market_open_interests: Setting 0 for %s", current_market)
+
+            # Don't crash the first run (when the csv has no data) The quarterly
+            # volume is 0 at this point.
+            quarterly_market_open_interests[current_market] = 0
+        ####### END #######
+
 
         # finds number of candidates/contracts being searched for
         num_contracts = len(manual_entry_by_market[USED_MARKETS[0]])
@@ -1423,8 +1579,8 @@ def program(dummy,diff_time_delay,button,html_title):
             # That's a legitimate case. So, we say .get(current_market, None) so that it defaults to empty string in the csv
             odds_data_to_write = [x['odds_by_market'].get(current_market, None) for x in finalwinner_odds_tuples]
             if not SKIP_WRITING_HISTORY:
-                history_data_set.write_for_csv_name(current_market, data_counter, unix_time, local_time, odds_data_to_write, market_volumes[current_market])
-
+                history_data_set.write_for_csv_name(current_market, data_counter, unix_time, local_time, odds_data_to_write, market_volumes[current_market], market_open_interests[current_market])
+            # Added ABOVE LINE May 25 - market_open_interests to write the data to the csv file 
 
         ##################!!####################
         # if on final market, then AVERAGE the odds accross markets here
@@ -1466,6 +1622,19 @@ def program(dummy,diff_time_delay,button,html_title):
             publishable_total_volume = str("{:,.0f}".format(corrected_total_volume))
             logging.debug("publishable_total_volume %s", publishable_total_volume)
 
+            ####################
+            ### ADDED May 25 ###
+            ####################
+            logging.info("FINAL OI: %s", market_open_interests)
+            logging.info("FINAL Corrected OI: %s", corrected_market_open_interests)
+            logging.info("FINAL Quarterly OI: %s", quarterly_market_open_interests)
+            total_open_interest = sum(market_open_interests.values())
+            corrected_total_open_interest = sum(corrected_market_open_interests.values())
+
+            publishable_total_open_interest = str("{:,.0f}".format(corrected_total_open_interest))
+            logging.debug("publishable_total_open_interest %s", publishable_total_open_interest)
+            #####################
+
             logging.debug(
                 "num_contracts: %s num_markets %s", num_contracts, num_markets,
             )
@@ -1488,6 +1657,16 @@ def program(dummy,diff_time_delay,button,html_title):
                 logging.debug(
                     "contract_index: %s candidate_market_weighting_factors %s", contract_index, candidate_market_weighting_factors,
                 )
+
+                ####################
+                ### ADDED May 25 ###
+                #################### I think this is not needed anymore as the factpr is originally computed with volume but oh well
+                candidate_open_interest_factor = sum((corrected_market_open_interests[market] or EPSILON) for market in candidate_markets)
+                candidate_market_weighting_factors_2 = {market: float(corrected_market_open_interests[market] or EPSILON) / candidate_open_interest_factor for market in candidate_markets}
+                logging.debug(
+                    "contract_index: %s candidate_market_weighting_factors %s", contract_index, candidate_market_weighting_factors,
+                )
+                ####################
 
                 combined_odds = sum(
                     finalwinner_odds_tuples[contract_index]['odds_by_market'].values()
@@ -1517,9 +1696,17 @@ def program(dummy,diff_time_delay,button,html_title):
 
             logging.info("USED_MARKETS: %s", USED_MARKETS)
             logging.info("market_volumes: \n%s", pformat(market_volumes))
+            logging.info("market_open_interests: \n%s", pformat(market_open_interests)) # Added May 25
 
             general_volume_factor = sum((corrected_market_volumes[market] or EPSILON) for market in corrected_market_volumes)
             general_market_weighting_factors = {market: float(corrected_market_volumes[market] or EPSILON) / general_volume_factor for market in corrected_market_volumes}
+            
+            ####################
+            ### ADDED May 25 ###
+            #################### I think this is not needed anymore as the factpr is originally computed with volume but oh well
+            general_open_interest_factor = sum((corrected_market_open_interests[market] or EPSILON) for market in corrected_market_open_interests)
+            general_market_weighting_factors_2 = {market: float(corrected_market_open_interests[market] or EPSILON) / general_open_interest_factor for market in corrected_market_open_interests}
+            ####################
 
             logging.info(
                 "general_market_weighting_factors (Just Informational. Candidate-specific QUARTERLY factors are used for weighing odds.): \n%s",
@@ -1663,6 +1850,7 @@ def program(dummy,diff_time_delay,button,html_title):
 
                 headers = ["Markets", "Range (Bid-Ask)"]
                 headers.append("Total $ Bet")
+                headers.append("Total $ Open Interest") # Added May 25 - may omit if not needed
                 #headers.append("Quarterly $ Bet")
 
                 table_data = []
@@ -1678,6 +1866,7 @@ def program(dummy,diff_time_delay,button,html_title):
                     ]
 
                     row.append('$' + str("{:,.0f}".format(market_volumes[market])))
+                    row.append('$' + str("{:,.0f}".format(market_open_interests[market]))) # Added May 25 - may omit if not needed
                     #row.append('$' + str("{:,.0f}".format(quarterly_market_volumes[market])))
 
                     table_data.append(row)
@@ -1791,6 +1980,7 @@ def program(dummy,diff_time_delay,button,html_title):
                     local_time,
                     [x['combined_odds'] for x in finalwinner_odds_tuples],
                     total_volume,
+                    total_open_interest, # Added May 25
                     manual_entry
                 )
 
@@ -1800,6 +1990,7 @@ def program(dummy,diff_time_delay,button,html_title):
                     local_time,
                     [x['combined_odds_weighted'] for x in finalwinner_odds_tuples],
                     total_volume,
+                    total_open_interest, # Added May 25
                     manual_entry
                 )
 

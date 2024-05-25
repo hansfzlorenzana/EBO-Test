@@ -5,7 +5,7 @@ import shutil
 from StringIO import StringIO
 import time
 
-HISTORY_BASE_FIELDS = ['data_counter', 'unix_time', 'year', 'month', 'day', 'hour', 'minute', 'second', 'timezone', 'volume']
+HISTORY_BASE_FIELDS = ['data_counter', 'unix_time', 'year', 'month', 'day', 'hour', 'minute', 'second', 'timezone', 'volume', 'open_interest'] # Added May 25 - added open_interest
 
 class HistoryDataFileSet():
     def __init__(self, candidate_fields, my_root, csv_names, rewrite_mismatching_headers=False):
@@ -104,7 +104,9 @@ class HistoryDataFileSet():
                             csvfilerewriteheaders.write(row)
                 shutil.move(rewriting_headers_csv_file_name, csv_file_name)
 
-    def write_for_csv_name(self, csv_name, data_counter, unix_time, local_time, odds_data, volume):
+    # ADDED May 25
+    # Add the open_interest column and its data
+    def write_for_csv_name(self, csv_name, data_counter, unix_time, local_time, odds_data, volume, open_interest):
         """
         `odds_data` should be a list of numbers or `None` values. `None` values will result in an empty cell. Numbers will be truncated before saving.
         """
@@ -138,6 +140,7 @@ class HistoryDataFileSet():
         row_data['timezone'] = time.strftime('%Z')
 
         row_data['volume'] = int(round(volume))
+        row_data['open_interest'] = int(round(open_interest)) # Added may 25 - added open_interest
 
         csv_file_name = self.get_file_name(csv_name)
         with open(csv_file_name, 'a') as csvfile:
@@ -396,6 +399,21 @@ class DataHistory:
             self._get_cleaned_value(entry, "volume")
             for entry in nearest_entries
         ]
+
+    ####################
+    ### ADDED May 25 ###
+    ####################
+    def get_past_open_interests(self, unix_time, desired_delay, entries_before_and_after):
+        # unix_time is the timestamp as the program is running
+        # desired_delay is a timedelta representing how far back in time to go to look for a closest match entry
+
+        nearest_entries = self._find_nearest_entries(unix_time - desired_delay.total_seconds(), entries_before_and_after)
+
+        return [
+            self._get_cleaned_value(entry, "open_interest")
+            for entry in nearest_entries
+        ]
+    ############
 
     def has_data(self):
         return len(self.entries) > 0
