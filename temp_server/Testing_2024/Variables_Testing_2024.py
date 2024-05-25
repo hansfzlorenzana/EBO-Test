@@ -48,9 +48,9 @@ def full_stack():
     return stackstr
 
 try:
-    eboconfig = imp.load_source("eboconfig", "temp_server/eboconfig.py")
+    eboconfig = imp.load_source("eboconfig", "/temp_server/eboconfig.py")
 except:
-    print ("Error: Need a valid temp_server/eboconfig.py file. See temp_server/eboconfig.py.example for reference.")
+    print ("Error: Need a valid /temp_server/eboconfig.py file. See /temp_server/eboconfig.py.example for reference.")
     raise
 
 MAX_LIMITED_ROWS = 50 # max number of contracts to list, to avoid overwhelming people
@@ -215,7 +215,7 @@ binary_creator = 0
 
 # Actually runs program
 try:
-    with open ("temp_server/FTX_Universal_Machine.py", "r") as myfile:
+    with open ("/temp_server/FTX_Universal_Machine.py", "r") as myfile:
         PredictIt_Machine_Code = myfile.read()
 
     exec(PredictIt_Machine_Code)
@@ -243,9 +243,9 @@ except Exception,e:
         print "!!!!!!!!!!!!! ERROR !!!!!!!!!!!!!!!"
         print "error at:"+str(now)+"... trying again in 60 seconds..."
         # CREATING THE E-MAIL VARIABLES AND SETS DEFAULT VALUES
-        g = open('temp_server/'+my_root+'/error_email'+my_ticker+'.txt','w')
+        g = open('/temp_server/'+my_root+'/error_email'+my_ticker+'.txt','w')
         g.write(str(e))
-        g = open('temp_server/'+my_root+'/error_email'+my_ticker+'.txt','r')
+        g = open('/temp_server/'+my_root+'/error_email'+my_ticker+'.txt','r')
         SMTP_SERVER = "smtp.gmail.com"
         SMTP_PORT = 587
         SMTP_USERNAME = "maxims.program@gmail.com"

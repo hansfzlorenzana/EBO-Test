@@ -15,7 +15,7 @@ class HistoryDataFileSet():
         self.init_all(rewrite_mismatching_headers)
 
     def get_dir_path(self):
-        return os.path.join('temp_server/', self.my_root, 'price_logs')
+        return os.path.join('/temp_server/', self.my_root, 'price_logs')
 
     def _check_base_fields(self, fieldnames):
         # Check if the field names in the file that's been read matches with HISTORY_BASE_FIELDS. That is to say, everything
