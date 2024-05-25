@@ -13,16 +13,6 @@ import json
 
 PredictIt_manual_entry = [
         ("Stefanik","Stefanik",""),
-        ("Noem","Noem",""),
-        ("Scott","TimScott",""),
-        ("Ramaswamy","Ramaswamy",""),
-        ("Haley","Haley",""),
-        ("Lake","Lake",""),
-        ("Donalds","Donalds",""),
-        ("DeSantis","DeSantis",""),
-        ("RFK Jr.","Kennedy",""),
-        (None,"Carson",""),
-        (None,"Vance",""),
         ]
 my_PredictIt_URL = "https://www.predictit.org/api/marketdata/markets/8069" 
 
@@ -54,6 +44,7 @@ def scrape_predictit():
             costs = []
             for foo in json_data:
                 costs.append(foo['openInterest'])
+                costs.append(foo['totalSharesTraded'])
                 print foo
             print costs
             total = sum(costs)
@@ -77,8 +68,6 @@ def parse_predictit_volume(predictit_volume):
 
 scrape, poly, vol = scrape_predictit()
 
-print scrape
-print poly
 print "Volume"
 print vol
 
