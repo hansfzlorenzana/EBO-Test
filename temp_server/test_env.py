@@ -44,15 +44,21 @@ def scrape_predictit():
             costs = []
             for foo in json_data:
                 costs.append(foo['openInterest'])
-                costs.append(foo['totalSharesTraded'])
-                print foo
-            print costs
             total = sum(costs)
-            print total
             return total
+        def getTotalVolume(url):
+            resp = requests.get(url)
+            json_data = json.loads(resp.content)
+            costs = []
+            for foo in json_data:
+                costs.append(foo['totalSharesTraded'])
+            total = sum(costs)
+            return total
+        predictit_open_interest = getTotalOpenInterest(PredictIt_volume_URL)
         predictit_volume = getTotalOpenInterest(PredictIt_volume_URL)
         #adjusting for peculiarities of Pred volume reporting
         predictit_volume = predictit_volume # / (len(PredictIt_manual_entry) / 2)
+        predictit_open_interest = predictit_open_interest
     except Exception:
         warning_message = "Error scraping PredictIt (may try to recover with other markets)"
 
@@ -61,17 +67,18 @@ def scrape_predictit():
         parsable_PredictIt_WINNER_raw = ''
         predictit_volume = 0
 
-    return scrape_failed, parsable_PredictIt_WINNER_raw, predictit_volume
+    return scrape_failed, parsable_PredictIt_WINNER_raw, predictit_volume, predictit_open_interest
 
 def parse_predictit_volume(predictit_volume):
     return predictit_volume
 
-scrape, poly, vol = scrape_predictit()
+scrape, poly, vol, oi = scrape_predictit()
 
 print "Volume"
 print vol
+print oi
 
-p_vol = parse_predictit_volume(vol)
+# p_vol = parse_predictit_volume(vol)
 
-print(p_vol)
+# print(p_vol)
 
