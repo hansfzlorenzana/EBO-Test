@@ -1,0 +1,3 @@
+data_counter,unix_time,year,month,day,hour,minute,second,timezone,volume,Trump,Pence,Rubio,Cotton,Cruz,Haley,Hawley,Trump_Jr,I_Trump,Pompeo,Noem,Carlson,Crenshaw,DeSantis,RickScott,TimScott,Ramaswamy,Christie,Elder
+1,1712083404,2024,4,3,2,43,24,PST,7880715,0.9217,0.0077,0.005,0.0005,0.0005,0.0142,0.0005,0.0015,0.0042,0.0114,0.0006,0.0012,,0.0093,0.0005,0.0009,0.0042,0.0011,0.0005
+1,1712083446,2024,4,3,2,44,6,PST,7880715,0.9217,0.0077,0.005,0.0005,0.0005,0.0142,0.0005,0.0015,0.0042,0.0114,0.0006,0.0012,,0.0093,0.0005,0.0009,0.0042,0.0011,0.0005

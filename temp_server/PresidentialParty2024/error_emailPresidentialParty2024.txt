@@ -1,0 +1,1 @@
+Can't find a valid market value for right now, for PredictIt. This is the first run for this market. The server must be telling us that the volume is 0.

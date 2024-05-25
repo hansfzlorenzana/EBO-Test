@@ -1,0 +1,352 @@
+
+<!--...-->
+    <table border=0 class="inlineTable">
+        <tr>
+            <td>
+
+            <style class="cp-pen-styles">
+
+#selected-state {
+font-size: 21pt;
+margin-bottom: 20px;
+font-style: bold;
+font-family: "Times New Roman" !important;
+}
+
+#map {width: 700px; height: 450px; ;}
+</style>
+<div id="selected-state"><span><b><u>Senate Seats 2024</u> (estimate: <font color=#0000ff>19</font>-<font color=#ff0000>12</font>. Hover over states)</b><span style="font-size: 14pt;"><br><b>Current senate is <font color=#0000ff>50</font>-<font color=#ff0000>50</font></b></span></span></div></div>
+<div id="map"></div>
+<script src='https://electionbettingodds.com/stopExecutionOnTimeout.js?t=1'></script>
+<script src='https://electionbettingodds.com/jquery.min.js'></script>
+<script src='https://electionbettingodds.com/raphael-min.js'></script>
+<script src='https://electionbettingodds.com/jquery.usmap.js'></script>
+<script src='https://electionbettingodds.com/color.jquery.js'></script>
+<script>$(document).ready(function () {
+$('#map').usmap({
+mouseover: function(event, data) {
+$('#selected-state > span').text(data.name).css({"font-weight": "bold", "color": "#FFFFFF"});
+    },
+    mouseout: function (event, data) {
+        $('#selected-state > span').html('<b>Hover over it to find out</b>').css({
+            'font-weight': 'normal',
+            'color': '#FFFFFF'
+        });
+    }
+});
+});
+    $('#map').usmap({
+showLabels: false,
+    'stateStyles': {
+        fill: "#FFFFFF",
+        stroke: "#000000",
+        "stroke-width": 3,
+        "stroke-linejoin": "round",
+        scale: [1, 1]
+    },
+    stateHoverStyles: {
+        fill: "#000000",
+        stroke: "#000000",
+        scale: [1.1, 1.1]
+    },
+    labelBackingStyles: {
+        fill: "#000000",
+        stroke: "#000000",
+        "stroke-width": 1,
+        "stroke-linejoin": "round",
+        scale: [1, 1]
+    },
+    
+    // The styles for the hover
+    labelBackingHoverStyles: {
+        fill: "#000000",
+        stroke: "#000000",
+    },
+    labelTextStyles: {
+    fill: "#222",
+        'stroke': 'none',
+        'font-weight': 300,
+        'stroke-width': 0,
+        'font-size': '21pt'
+    },
+stateSpecificStyles: {
+AL: {fill: "#ffffff",'stroke-width': 1.5,'stroke': "#000000"},
+AK: {fill: "#ffffff",'stroke-width': 1.5,'stroke': "#000000"},
+AZ: {fill: "#9999ff",'stroke-width': 1.5,'stroke': "#000000"},
+AR: {fill: "#ffffff",'stroke-width': 1.5,'stroke': "#000000"},
+CA: {fill: "#0000b3",'stroke-width': 1.5,'stroke': "#000000"},
+CO: {fill: "#ffffff",'stroke-width': 1.5,'stroke': "#000000"},
+CT: {fill: "#0000ff",'stroke-width': 1.5,'stroke': "#000000"},
+DE: {fill: "#0000ff",'stroke-width': 1.5,'stroke': "#000000"},
+FL: {fill: "#ff0000",'stroke-width': 1.5,'stroke': "#000000"},
+GA: {fill: "#ffffff",'stroke-width': 1.5,'stroke': "#000000"},
+HI: {fill: "#0000ff",'stroke-width': 1.5,'stroke': "#000000"},
+ID: {fill: "#ffffff",'stroke-width': 1.5,'stroke': "#000000"},
+IL: {fill: "#ffffff",'stroke-width': 1.5,'stroke': "#000000"},
+IN: {fill: "#ff0000",'stroke-width': 1.5,'stroke': "#000000"},
+IA: {fill: "#ffffff",'stroke-width': 1.5,'stroke': "#000000"},
+KS: {fill: "#ffffff",'stroke-width': 1.5,'stroke': "#000000"},
+KY: {fill: "#ffffff",'stroke-width': 1.5,'stroke': "#000000"},
+LA: {fill: "#ffffff",'stroke-width': 1.5,'stroke': "#000000"},
+ME: {fill: "#ffffff",'stroke-width': 1.5,'stroke': "#000000"},
+MD: {fill: "#4d4dff",'stroke-width': 1.5,'stroke': "#000000"},
+MA: {fill: "#0000b3",'stroke-width': 1.5,'stroke': "#000000"},
+MI: {fill: "#4d4dff",'stroke-width': 1.5,'stroke': "#000000"},
+MN: {fill: "#0000ff",'stroke-width': 1.5,'stroke': "#000000"},
+MS: {fill: "#ff0000",'stroke-width': 1.5,'stroke': "#000000"},
+MO: {fill: "#ff0000",'stroke-width': 1.5,'stroke': "#000000"},
+MT: {fill: "#ffe6e6",'stroke-width': 1.5,'stroke': "#000000"},
+NE: {fill: "#b30000",'stroke-width': 1.5,'stroke': "#000000"},
+NV: {fill: "#e6e6ff",'stroke-width': 1.5,'stroke': "#000000"},
+NH: {fill: "#ffffff",'stroke-width': 1.5,'stroke': "#000000"},
+NJ: {fill: "#0000ff",'stroke-width': 1.5,'stroke': "#000000"},
+NM: {fill: "#0000ff",'stroke-width': 1.5,'stroke': "#000000"},
+NY: {fill: "#0000b3",'stroke-width': 1.5,'stroke': "#000000"},
+NC: {fill: "#ffffff",'stroke-width': 1.5,'stroke': "#000000"},
+ND: {fill: "#b30000",'stroke-width': 1.5,'stroke': "#000000"},
+OH: {fill: "#ffffff",'stroke-width': 1.5,'stroke': "#000000"},
+OK: {fill: "#ffffff",'stroke-width': 1.5,'stroke': "#000000"},
+OR: {fill: "#ffffff",'stroke-width': 1.5,'stroke': "#000000"},
+PA: {fill: "#4d4dff",'stroke-width': 1.5,'stroke': "#000000"},
+RI: {fill: "#0000ff",'stroke-width': 1.5,'stroke': "#000000"},
+SC: {fill: "#ffffff",'stroke-width': 1.5,'stroke': "#000000"},
+SD: {fill: "#ffffff",'stroke-width': 1.5,'stroke': "#000000"},
+TN: {fill: "#b30000",'stroke-width': 1.5,'stroke': "#000000"},
+TX: {fill: "#ff0000",'stroke-width': 1.5,'stroke': "#000000"},
+UT: {fill: "#ff0000",'stroke-width': 1.5,'stroke': "#000000"},
+VT: {fill: "#ffffff",'stroke-width': 1.5,'stroke': "#000000"},
+VA: {fill: "#0000ff",'stroke-width': 1.5,'stroke': "#000000"},
+WA: {fill: "#0000b3",'stroke-width': 1.5,'stroke': "#000000"},
+WV: {fill: "#ff0000",'stroke-width': 1.5,'stroke': "#000000"},
+WI: {fill: "#4d4dff",'stroke-width': 1.5,'stroke': "#000000"},
+WY: {fill: "#ff0000",'stroke-width': 1.5,'stroke': "#000000"},
+},
+
+stateSpecificHoverStyles: {
+'AL': {fill: "#ffffff",'stroke-width': 3,'stroke': "#000000"},
+'AK': {fill: "#ffffff",'stroke-width': 3,'stroke': "#000000"},
+'AZ': {fill: "#9999ff",'stroke-width': 3,'stroke': "#000000"},
+'AR': {fill: "#ffffff",'stroke-width': 3,'stroke': "#000000"},
+'CA': {fill: "#0000b3",'stroke-width': 3,'stroke': "#000000"},
+'CO': {fill: "#ffffff",'stroke-width': 3,'stroke': "#000000"},
+'CT': {fill: "#0000ff",'stroke-width': 3,'stroke': "#000000"},
+'DE': {fill: "#0000ff",'stroke-width': 3,'stroke': "#000000"},
+'FL': {fill: "#ff0000",'stroke-width': 3,'stroke': "#000000"},
+'GA': {fill: "#ffffff",'stroke-width': 3,'stroke': "#000000"},
+'HI': {fill: "#0000ff",'stroke-width': 3,'stroke': "#000000"},
+'ID': {fill: "#ffffff",'stroke-width': 3,'stroke': "#000000"},
+'IL': {fill: "#ffffff",'stroke-width': 3,'stroke': "#000000"},
+'IN': {fill: "#ff0000",'stroke-width': 3,'stroke': "#000000"},
+'IA': {fill: "#ffffff",'stroke-width': 3,'stroke': "#000000"},
+'KS': {fill: "#ffffff",'stroke-width': 3,'stroke': "#000000"},
+'KY': {fill: "#ffffff",'stroke-width': 3,'stroke': "#000000"},
+'LA': {fill: "#ffffff",'stroke-width': 3,'stroke': "#000000"},
+'ME': {fill: "#ffffff",'stroke-width': 3,'stroke': "#000000"},
+'MD': {fill: "#4d4dff",'stroke-width': 3,'stroke': "#000000"},
+'MA': {fill: "#0000b3",'stroke-width': 3,'stroke': "#000000"},
+'MI': {fill: "#4d4dff",'stroke-width': 3,'stroke': "#000000"},
+'MN': {fill: "#0000ff",'stroke-width': 3,'stroke': "#000000"},
+'MS': {fill: "#ff0000",'stroke-width': 3,'stroke': "#000000"},
+'MO': {fill: "#ff0000",'stroke-width': 3,'stroke': "#000000"},
+'MT': {fill: "#ffe6e6",'stroke-width': 3,'stroke': "#000000"},
+'NE': {fill: "#b30000",'stroke-width': 3,'stroke': "#000000"},
+'NV': {fill: "#e6e6ff",'stroke-width': 3,'stroke': "#000000"},
+'NH': {fill: "#ffffff",'stroke-width': 3,'stroke': "#000000"},
+'NJ': {fill: "#0000ff",'stroke-width': 3,'stroke': "#000000"},
+'NM': {fill: "#0000ff",'stroke-width': 3,'stroke': "#000000"},
+'NY': {fill: "#0000b3",'stroke-width': 3,'stroke': "#000000"},
+'NC': {fill: "#ffffff",'stroke-width': 3,'stroke': "#000000"},
+'ND': {fill: "#b30000",'stroke-width': 3,'stroke': "#000000"},
+'OH': {fill: "#ffffff",'stroke-width': 3,'stroke': "#000000"},
+'OK': {fill: "#ffffff",'stroke-width': 3,'stroke': "#000000"},
+'OR': {fill: "#ffffff",'stroke-width': 3,'stroke': "#000000"},
+'PA': {fill: "#4d4dff",'stroke-width': 3,'stroke': "#000000"},
+'RI': {fill: "#0000ff",'stroke-width': 3,'stroke': "#000000"},
+'SC': {fill: "#ffffff",'stroke-width': 3,'stroke': "#000000"},
+'SD': {fill: "#ffffff",'stroke-width': 3,'stroke': "#000000"},
+'TN': {fill: "#b30000",'stroke-width': 3,'stroke': "#000000"},
+'TX': {fill: "#ff0000",'stroke-width': 3,'stroke': "#000000"},
+'UT': {fill: "#ff0000",'stroke-width': 3,'stroke': "#000000"},
+'VT': {fill: "#ffffff",'stroke-width': 3,'stroke': "#000000"},
+'VA': {fill: "#0000ff",'stroke-width': 3,'stroke': "#000000"},
+'WA': {fill: "#0000b3",'stroke-width': 3,'stroke': "#000000"},
+'WV': {fill: "#ff0000",'stroke-width': 3,'stroke': "#000000"},
+'WI': {fill: "#4d4dff",'stroke-width': 3,'stroke': "#000000"},
+'WY': {fill: "#ff0000",'stroke-width': 3,'stroke': "#000000"},
+},
+
+    mouseover: function(event, data) {
+var description = "No state info loaded for this state.";
+    switch(data.name) {
+case 'AL':
+description = '<b>Alabama: No senate race this year</b><span style="font-size: 14pt;"><br><b>Current senate is <font color=#0000ff>50</font>-<font color=#ff0000>50</font></b></span>';
+break;
+case 'AK':
+description = '<b>Alaska: No senate race this year</b><span style="font-size: 14pt;"><br><b>Current senate is <font color=#0000ff>50</font>-<font color=#ff0000>50</font></b></span>';
+break;
+case 'AZ':
+description = '<b>Arizona: <font color=#0000ff>Democratic: 66.5%</font> vs <font color=#ff0000>Republican: 33.0%</font></b><span style="font-size: 14pt;"><br><font color=#0000ff>Democratic: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'AR':
+description = '<b>Arkansas: No senate race this year</b><span style="font-size: 14pt;"><br><b>Current senate is <font color=#0000ff>50</font>-<font color=#ff0000>50</font></b></span>';
+break;
+case 'CA':
+description = '<b>California: <font color=#0000ff>Democratic: 90.0%</font> vs <font color=#ff0000>Republican: 8.5%</font></b><span style="font-size: 14pt;"><br><font color=#0000ff>Democratic: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'CO':
+description = '<b>Colorado: No senate race this year</b><span style="font-size: 14pt;"><br><b>Current senate is <font color=#0000ff>50</font>-<font color=#ff0000>50</font></b></span>';
+break;
+case 'CT':
+description = '<b>Connecticut: <font color=#0000ff>Democratic: 89.0%</font> vs <font color=#ff0000>Republican: 10.0%</font></b><span style="font-size: 14pt;"><br><font color=#0000ff>Democratic: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'DE':
+description = '<b>Delaware: <font color=#0000ff>Democratic: 89.5%</font> vs <font color=#ff0000>Republican: 9.0%</font></b><span style="font-size: 14pt;"><br><font color=#0000ff>Democratic: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'FL':
+description = '<b>Florida: <font color=#ff0000>Republican: 87.5%</font> vs <font color=#0000ff>Democratic: 12.0%</font></b><span style="font-size: 14pt;"><br><font color=#ff0000>Republican: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'GA':
+description = '<b>Georgia: No senate race this year</b><span style="font-size: 14pt;"><br><b>Current senate is <font color=#0000ff>50</font>-<font color=#ff0000>50</font></b></span>';
+break;
+case 'HI':
+description = '<b>Hawaii: <font color=#0000ff>Democratic: 89.5%</font> vs <font color=#ff0000>Republican: 10.5%</font></b><span style="font-size: 14pt;"><br><font color=#0000ff>Democratic: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'ID':
+description = '<b>Idaho: No senate race this year</b><span style="font-size: 14pt;"><br><b>Current senate is <font color=#0000ff>50</font>-<font color=#ff0000>50</font></b></span>';
+break;
+case 'IL':
+description = '<b>Illinois: No senate race this year</b><span style="font-size: 14pt;"><br><b>Current senate is <font color=#0000ff>50</font>-<font color=#ff0000>50</font></b></span>';
+break;
+case 'IN':
+description = '<b>Indiana: <font color=#ff0000>Republican: 88.5%</font> vs <font color=#0000ff>Democratic: 9.5%</font></b><span style="font-size: 14pt;"><br><font color=#ff0000>Republican: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'IA':
+description = '<b>Iowa: No senate race this year</b><span style="font-size: 14pt;"><br><b>Current senate is <font color=#0000ff>50</font>-<font color=#ff0000>50</font></b></span>';
+break;
+case 'KS':
+description = '<b>Kansas: No senate race this year</b><span style="font-size: 14pt;"><br><b>Current senate is <font color=#0000ff>50</font>-<font color=#ff0000>50</font></b></span>';
+break;
+case 'KY':
+description = '<b>Kentucky: No senate race this year</b><span style="font-size: 14pt;"><br><b>Current senate is <font color=#0000ff>50</font>-<font color=#ff0000>50</font></b></span>';
+break;
+case 'LA':
+description = '<b>Louisiana: No senate race this year</b><span style="font-size: 14pt;"><br><b>Current senate is <font color=#0000ff>50</font>-<font color=#ff0000>50</font></b></span>';
+break;
+case 'ME':
+description = '<b>Maine: No senate race this year</b><span style="font-size: 14pt;"><br><b>Current senate is <font color=#0000ff>50</font>-<font color=#ff0000>50</font></b></span>';
+break;
+case 'MD':
+description = '<b>Maryland: <font color=#0000ff>Democratic: 74.5%</font> vs <font color=#ff0000>Republican: 24.5%</font></b><span style="font-size: 14pt;"><br><font color=#0000ff>Democratic: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'MA':
+description = '<b>Massachusetts: <font color=#0000ff>Democratic: 90.0%</font> vs <font color=#ff0000>Republican: 9.0%</font></b><span style="font-size: 14pt;"><br><font color=#0000ff>Democratic: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'MI':
+description = '<b>Michigan: <font color=#0000ff>Democratic: 72.5%</font> vs <font color=#ff0000>Republican: 25.5%</font></b><span style="font-size: 14pt;"><br><font color=#0000ff>Democratic: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'MN':
+description = '<b>Minnesota: <font color=#0000ff>Democratic: 88.0%</font> vs <font color=#ff0000>Republican: 9.5%</font></b><span style="font-size: 14pt;"><br><font color=#0000ff>Democratic: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'MS':
+description = '<b>Mississippi: <font color=#ff0000>Republican: 88.5%</font> vs <font color=#0000ff>Democratic: 10.0%</font></b><span style="font-size: 14pt;"><br><font color=#ff0000>Republican: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'MO':
+description = '<b>Missouri: <font color=#ff0000>Republican: 89.5%</font> vs <font color=#0000ff>Democratic: 9.5%</font></b><span style="font-size: 14pt;"><br><font color=#ff0000>Republican: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'MT':
+description = '<b>Montana: <font color=#ff0000>Republican: 52.5%</font> vs <font color=#0000ff>Democratic: 47.5%</font></b><span style="font-size: 14pt;"><br><font color=#ff0000>Republican: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'NE':
+description = '<b>Nebraska: <font color=#ff0000>Republican: 90.5%</font> vs <font color=#0000ff>Democratic: 3.5%</font></b><span style="font-size: 14pt;"><br><font color=#ff0000>Republican: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'NV':
+description = '<b>Nevada: <font color=#0000ff>Democratic: 59.5%</font> vs <font color=#ff0000>Republican: 39.5%</font></b><span style="font-size: 14pt;"><br><font color=#0000ff>Democratic: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'NH':
+description = '<b>New Hampshire: No senate race this year</b><span style="font-size: 14pt;"><br><b>Current senate is <font color=#0000ff>50</font>-<font color=#ff0000>50</font></b></span>';
+break;
+case 'NJ':
+description = '<b>New Jersey: <font color=#0000ff>Democratic: 88.5%</font> vs <font color=#ff0000>Republican: 11.0%</font></b><span style="font-size: 14pt;"><br><font color=#0000ff>Democratic: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'NM':
+description = '<b>New Mexico: <font color=#0000ff>Democratic: 88.1%</font> vs <font color=#ff0000>Republican: 11.9%</font></b><span style="font-size: 14pt;"><br><font color=#0000ff>Democratic: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'NY':
+description = '<b>New York: <font color=#0000ff>Democratic: 90.0%</font> vs <font color=#ff0000>Republican: 9.0%</font></b><span style="font-size: 14pt;"><br><font color=#0000ff>Democratic: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'NC':
+description = '<b>North Carolina: No senate race this year</b><span style="font-size: 14pt;"><br><b>Current senate is <font color=#0000ff>50</font>-<font color=#ff0000>50</font></b></span>';
+break;
+case 'ND':
+description = '<b>North Dakota: <font color=#ff0000>Republican: 90.0%</font> vs <font color=#0000ff>Democratic: 9.5%</font></b><span style="font-size: 14pt;"><br><font color=#ff0000>Republican: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'OH':
+description = '<b>Ohio: <font color=#0000ff>Democratic: 50.0%</font> vs <font color=#ff0000>Republican: 48.5%</font></b><span style="font-size: 14pt;"><br><font color=#0000ff>Democratic: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'OK':
+description = '<b>Oklahoma: No senate race this year</b><span style="font-size: 14pt;"><br><b>Current senate is <font color=#0000ff>50</font>-<font color=#ff0000>50</font></b></span>';
+break;
+case 'OR':
+description = '<b>Oregon: No senate race this year</b><span style="font-size: 14pt;"><br><b>Current senate is <font color=#0000ff>50</font>-<font color=#ff0000>50</font></b></span>';
+break;
+case 'PA':
+description = '<b>Pennsylvania: <font color=#0000ff>Democratic: 77.5%</font> vs <font color=#ff0000>Republican: 21.5%</font></b><span style="font-size: 14pt;"><br><font color=#0000ff>Democratic: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'RI':
+description = '<b>Rhode Island: <font color=#0000ff>Democratic: 89.5%</font> vs <font color=#ff0000>Republican: 10.0%</font></b><span style="font-size: 14pt;"><br><font color=#0000ff>Democratic: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'SC':
+description = '<b>South Carolina: No senate race this year</b><span style="font-size: 14pt;"><br><b>Current senate is <font color=#0000ff>50</font>-<font color=#ff0000>50</font></b></span>';
+break;
+case 'SD':
+description = '<b>South Dakota: No senate race this year</b><span style="font-size: 14pt;"><br><b>Current senate is <font color=#0000ff>50</font>-<font color=#ff0000>50</font></b></span>';
+break;
+case 'TN':
+description = '<b>Tennessee: <font color=#ff0000>Republican: 90.5%</font> vs <font color=#0000ff>Democratic: 9.0%</font></b><span style="font-size: 14pt;"><br><font color=#ff0000>Republican: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'TX':
+description = '<b>Texas: <font color=#ff0000>Republican: 84.5%</font> vs <font color=#0000ff>Democratic: 14.5%</font></b><span style="font-size: 14pt;"><br><font color=#ff0000>Republican: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'UT':
+description = '<b>Utah: <font color=#ff0000>Republican: 88.5%</font> vs <font color=#0000ff>Democratic: 9.0%</font></b><span style="font-size: 14pt;"><br><font color=#ff0000>Republican: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'VT':
+description = '<b>Vermont: No senate race this year</b><span style="font-size: 14pt;"><br><b>Current senate is <font color=#0000ff>50</font>-<font color=#ff0000>50</font></b></span>';
+break;
+case 'VA':
+description = '<b>Virginia: <font color=#0000ff>Democratic: 88.0%</font> vs <font color=#ff0000>Republican: 11.0%</font></b><span style="font-size: 14pt;"><br><font color=#0000ff>Democratic: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'WA':
+description = '<b>Washington: <font color=#0000ff>Democratic: 90.5%</font> vs <font color=#ff0000>Republican: 9.0%</font></b><span style="font-size: 14pt;"><br><font color=#0000ff>Democratic: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'WV':
+description = '<b>West Virginia: <font color=#ff0000>Republican: 88.6%</font> vs <font color=#0000ff>Democratic: 11.4%</font></b><span style="font-size: 14pt;"><br><font color=#ff0000>Republican: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'WI':
+description = '<b>Wisconsin: <font color=#0000ff>Democratic: 70.5%</font> vs <font color=#ff0000>Republican: 29.5%</font></b><span style="font-size: 14pt;"><br><font color=#0000ff>Democratic: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;
+case 'WY':
+description = '<b>Wyoming: <font color=#ff0000>Republican: 89.5%</font> vs <font color=#0000ff>Democratic: 9.5%</font></b><span style="font-size: 14pt;"><br><font color=#ff0000>Republican: </font>+0.0% in last day. Electoral votes: 1</font></b>';
+break;}      
+            $('#selected-state > span').html(description).css({"font-weight": "bold", "color": "#000000"});
+    },
+    
+    mouseout: function(event, data) {
+    $('#selected-state > span').html('<b><u>Senate Seats 2024</u> (estimate: <font color=#0000ff>19</font>-<font color=#ff0000>12</font>. Hover over states)</b><span style="font-size: 14pt;"><br><b>Current senate is <font color=#0000ff>50</font>-<font color=#ff0000>50</font></b></span>').css({"font-weight": "normal", "color": "#000000"});
+    },
+    click: function(event, data) {
+        $('#clicked-state').text('You clicked: '+data.name).parent().effect('highlight', {color: '#C7F464'}, 2000);
+    },
+    });
+//# sourceURL=pen.js
+</script>
+<span style="font-size: 11pt;">
+<font color=#000000>Last updated:  5:41PM PST on Apr 13, 2024<br>
+Over $750k bet. State betting is from <a href="https://www.polymarket.com/">Polymarket</a>. Others to be added if liquid state market available.<br></span>
+</html>
+
+    </td>
+        </tr>
+    </table>
+    <!--...-->
+</center>

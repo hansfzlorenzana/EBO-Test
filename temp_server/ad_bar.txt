@@ -1,0 +1,49 @@
+         <center>                                         <iframe src="https://electionbetting.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+               </center>       
+
+<center><br>
+
+    <table class="inlineTable" border="0"  cellspacing="0" bgcolor="#e6e6e6" >
+
+    <TH colspan="5" scope="colgroup"><center><b><u><span style="font-size: 12pt;">Books we like:</span></u></b><p></p></center></TH>
+
+    <tr>
+    <td>
+    <a href="https://smile.amazon.com/Give-Me-Break-Exposed-Hucksters-ebook/dp/B000FC2NF8/" width="95" height="140" hspace="25"><img src="/book1.jpg" width="95" height="140" hspace="25"></a>
+    </td>
+    <td>
+    <a href="https://smile.amazon.com/Signal-Noise-Many-Predictions-Fail-but/dp/0143125087/"><img src="/book2.jpg" width="95" height="140" hspace="25"></a>
+    </td>
+    <td>
+    <a href="https://smile.amazon.com/Scout-Mindset-People-Things-Clearly-ebook/dp/B07L2HQ26K/"><img src="/book3.jpg" width="95" height="140" hspace="25"></a>
+    </td>
+    <td>
+    <a href="https://smile.amazon.com/Radical-Journey-out-Islamist-Extremism/dp/1493000616/"><img src="/book4.jpg" width="95" height="140" hspace="25"></a>
+    </td>
+    <td>
+    <a href="https://smile.amazon.com/Order-Live-Korean-Journey-Freedom/dp/1594206791/"><img src="/book5.jpg" width="95" height="140" hspace="25"></a>
+    </td>
+    </tr>
+
+
+    <tr>
+    <td>
+    <span style="font-size: 12pt;"><center><a href="https://smile.amazon.com/Give-Me-Break-Exposed-Hucksters-ebook/dp/B000FC2NF8/">"Give Me A Break"<br> By John Stossel</a></center></span>
+    </td>
+    <td>
+    <span style="font-size: 12pt;"><center><a href="https://smile.amazon.com/Signal-Noise-Many-Predictions-Fail-but/dp/0143125087/">"Signal and the Noise"<br> By Nate Silver</a></center></span>
+    </td>
+    <td>
+    <span style="font-size: 12pt;"><center><a href="https://smile.amazon.com/Scout-Mindset-People-Things-Clearly-ebook/dp/B07L2HQ26K/">"The Scout Mindset"<br> By Julia Galef</a></center></span>
+    </td>
+    <td>
+    <span style="font-size: 12pt;"><center><a href="https://smile.amazon.com/Radical-Journey-out-Islamist-Extremism/dp/1493000616/">"Radical"<br> By Maajid Nawaz</a></center></span>
+    </td>
+    <td>
+    <span style="font-size: 12pt;"><center><a href="https://smile.amazon.com/Order-Live-Korean-Journey-Freedom/dp/1594206791/">"In Order To Live"<br> By Yeonmi Park</a></center></span>
+    </td>
+    </tr>
+
+
+    </table>
+    </center>

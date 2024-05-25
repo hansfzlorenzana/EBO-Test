@@ -1,0 +1,26 @@
+        <style>
+    nav {
+        width: 620px;
+        padding: 3px;
+        border: 3px solid gray;
+        margin: 0;
+        font-size: 16pt;
+        font-weight:
+    }
+    sup {
+    font-size: 0.5em;
+    vertical-align: super;
+    line-height: 0;
+    }
+    </style>
+<CENTER>
+<nav><b><a href="https://electionbettingodds.com/">Home</a> | <a href="https://electionbettingodds.com/President2024.html#chart">Charts</a> | <a href="https://electionbettingodds.com/TrackRecord.html">Track Record</a> 
+<br>
+Primaries: <span style="background-color:#E0ECF8"><a href="DEMPrimary2024.html">Democrats</a></span> | <span style="background-color:#F8E0E0"><a href="GOPPrimary2024.html">Republicans</a></span>
+<br>
+Final winner: <a href="https://electionbettingodds.com/PresidentialParty2024.html">By Party</a> | <a href="https://electionbettingodds.com/President2024.html">By Candidate</a>
+<br>
+Electability: <a href="https://electionbettingodds.com/ElectabilityDEM.html">Democrats</a> | <a href="https://electionbettingodds.com/ElectabilityGOP.html">Republicans</a> | <a href="https://electionbettingodds.com/BidenResigns.html">Biden Out?</a>
+<br>
+<mark>NEW: <a href="https://electionbettingodds.com/RepublicanVicePresident_2024.html">GOP VP Nominee</a></mark>
+</nav>

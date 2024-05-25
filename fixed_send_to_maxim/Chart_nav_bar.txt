@@ -1,0 +1,21 @@
+<option value="/President2024.html">2024 - Presidential Winner</option>
+<option value="/DEMPrimary2024.html">2024 - Democratic Nomination</option>
+<option value="/GOPPrimary2024.html">2024 - Republican Nomination </option>
+<option value="/TrumpRuns2024.html">2024 - Trump Runs? </option>
+<option value="/PresidentialParty2024.html">2024 - Presidential Winner by Party</option>
+
+<option value="/ElectabilityDEM.html">2024 - Electability - Democrats</option>
+<option value="/ElectabilityGOP.html">2024 - Electability - Republicans</option>
+
+<option value="/Argentina2023.html">2023 - Argentina President</option>
+
+<option value="/Senate2022.html">2022 - Senate Control</option>
+<option value="/House2022.html">2022 - House Control</option>
+
+<option value="/President2020.html">*Historical - 2020 - U.S. Presidency</option>
+<option value="/DEMPrimary2020.html">*Historical - 2020 - Democratic Nomination 2020</option>
+<option value="/GOPPrimary2020.html">*Historical - 2020 - Republican Nomination 2020</option>
+
+<option value="/WIN_chart_maxim_lott_john_stossel.html">*Historical - 2016 - U.S. Presidency</option>
+<option value="/DEM_chart_maxim_lott_john_stossel.html">*Historical - 2016 - Democratic Nomination</option>
+<option value="/GOP_chart_maxim_lott_john_stossel.html">*Historical - 2016 - Republican Nomination</option>

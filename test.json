@@ -1,0 +1,869 @@
+{
+    "currencyCode": "USD",
+    "eventTypes": [
+      {
+        "eventTypeId": 10,
+        "eventNodes": [
+          {
+            "eventId": 32540181,
+            "event": {
+              "eventName": "The Academy Awards 2024",
+              "countryCode": "GB",
+              "timezone": "GMT",
+              "openDate": "2024-03-11T00:00:00.000Z"
+            },
+            "marketNodes": [
+              {
+                "marketId": "1.216842214",
+                "isMarketDataDelayed": true,
+                "state": {
+                  "betDelay": 0,
+                  "bspReconciled": false,
+                  "complete": false,
+                  "inplay": false,
+                  "numberOfWinners": 1,
+                  "numberOfRunners": 40,
+                  "numberOfActiveRunners": 10,
+                  "lastMatchTime": "2024-01-24T19:05:56.217Z",
+                  "totalMatched": 45383.513977537266,
+                  "totalAvailable": 21231.00314034542,
+                  "crossMatching": false,
+                  "runnersVoidable": false,
+                  "version": 5693612064,
+                  "status": "OPEN"
+                },
+                "description": {
+                  "persistenceEnabled": true,
+                  "bspMarket": false,
+                  "marketName": "Best Picture",
+                  "marketTime": "2024-03-10T23:59:59.000Z",
+                  "suspendTime": "2024-03-11T00:00:00.000Z",
+                  "turnInPlayEnabled": true,
+                  "marketType": "OTHER_SPECIALS",
+                  "priceLadderDescription": {
+                    "type": "CLASSIC"
+                  },
+                  "bettingType": "ODDS"
+                },
+                "licence": {
+                  "wallet": "UK wallet",
+                  "rules": "<br><b>MARKET INFORMATION</b><br><br>For further information please see <a href=http://content.betfair.com/aboutus/content.asp?sWhichKey=Rules%20and%20Regulations#undefined.do style=color:0163ad; text-decoration: underline; target=_blank>Rules & Regs</a>.<br><br>Which nominee will win the named category at the Oscars?<br><br>This market will be <b>turned in-play</b> at the stated time with unmatched bets cancelled. Thereafter, the market will not be actively managed. Customers are entirely responsible for their bets at all times. ALL BETS STAND RUN OR NOT<br><br>Customers should be aware that:<b><br><br><li>Transmissions described as “live” by some broadcasters may actually be delayed.</li><br><li>The extent of any such delay may vary, depending on the set-up through which they are receiving pictures or data.</li><br></b><br>\n\n",
+                  "rulesHasDate": false
+                },
+                "rates": {
+                  "marketBaseRate": 5,
+                  "discountAllowed": true
+                },
+                "runners": [
+                  {
+                    "selectionId": 51562989,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Oppenheimer",
+                      "metadata": {
+                        "runnerId": "51562989"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 1,
+                      "lastPriceTraded": 1.2,
+                      "totalMatched": 0,
+                      "status": "ACTIVE"
+                    },
+                    "exchange": {
+                      "availableToBack": [
+                        {
+                          "price": 1.17,
+                          "size": 151.55
+                        },
+                        {
+                          "price": 1.15,
+                          "size": 47.35
+                        }
+                      ],
+                      "availableToLay": [
+                        {
+                          "price": 1.21,
+                          "size": 35.64
+                        },
+                        {
+                          "price": 1.23,
+                          "size": 2427.04
+                        },
+                        {
+                          "price": 1.28,
+                          "size": 653.6
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "selectionId": 53613978,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "The Holdovers",
+                      "metadata": {
+                        "runnerId": "53613978"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 2,
+                      "lastPriceTraded": 14.5,
+                      "totalMatched": 0,
+                      "status": "ACTIVE"
+                    },
+                    "exchange": {
+                      "availableToBack": [
+                        {
+                          "price": 11,
+                          "size": 44.17
+                        },
+                        {
+                          "price": 10,
+                          "size": 108.93
+                        }
+                      ],
+                      "availableToLay": [
+                        {
+                          "price": 18,
+                          "size": 54.47
+                        },
+                        {
+                          "price": 42,
+                          "size": 41.55
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "selectionId": 43799777,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Poor Things",
+                      "metadata": {
+                        "runnerId": "43799777"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 3,
+                      "lastPriceTraded": 17.5,
+                      "totalMatched": 0,
+                      "status": "ACTIVE"
+                    },
+                    "exchange": {
+                      "availableToBack": [
+                        {
+                          "price": 17,
+                          "size": 93.77
+                        },
+                        {
+                          "price": 15,
+                          "size": 88.43
+                        }
+                      ],
+                      "availableToLay": [
+                        {
+                          "price": 1000,
+                          "size": 30.77
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "selectionId": 60694583,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "American Fiction",
+                      "metadata": {
+                        "runnerId": "60694583"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 4,
+                      "lastPriceTraded": 50,
+                      "totalMatched": 0,
+                      "status": "ACTIVE"
+                    },
+                    "exchange": {
+                      "availableToBack": [
+                        {
+                          "price": 40,
+                          "size": 32.81
+                        },
+                        {
+                          "price": 26,
+                          "size": 43.57
+                        }
+                      ],
+                      "availableToLay": [
+                        {
+                          "price": 940,
+                          "size": 16.17
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "selectionId": 55012854,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Anatomy of a Fall",
+                      "metadata": {
+                        "runnerId": "55012854"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 5,
+                      "lastPriceTraded": 32,
+                      "totalMatched": 0,
+                      "status": "ACTIVE"
+                    },
+                    "exchange": {
+                      "availableToBack": [
+                        {
+                          "price": 21,
+                          "size": 36.95
+                        },
+                        {
+                          "price": 20,
+                          "size": 54.47
+                        }
+                      ],
+                      "availableToLay": [
+                        {
+                          "price": 930,
+                          "size": 5.64
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "selectionId": 51562981,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Barbie",
+                      "metadata": {
+                        "runnerId": "51562981"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 6,
+                      "lastPriceTraded": 100,
+                      "totalMatched": 0,
+                      "status": "ACTIVE"
+                    },
+                    "exchange": {
+                      "availableToBack": [
+                        {
+                          "price": 7.2,
+                          "size": 40.57
+                        },
+                        {
+                          "price": 1.02,
+                          "size": 70.27
+                        }
+                      ],
+                      "availableToLay": [
+                        {
+                          "price": 970,
+                          "size": 7.71
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "selectionId": 55012859,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "The Zone of Interest",
+                      "metadata": {
+                        "runnerId": "55012859"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 7,
+                      "lastPriceTraded": 85,
+                      "totalMatched": 0,
+                      "status": "ACTIVE"
+                    },
+                    "exchange": {
+                      "availableToBack": [
+                        {
+                          "price": 40,
+                          "size": 38.12
+                        },
+                        {
+                          "price": 34,
+                          "size": 12.73
+                        }
+                      ],
+                      "availableToLay": [
+                        {
+                          "price": 1000,
+                          "size": 7.81
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "selectionId": 43799778,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Killers of the Flower Moon",
+                      "metadata": {
+                        "runnerId": "43799778"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 8,
+                      "lastPriceTraded": 38,
+                      "totalMatched": 0,
+                      "status": "ACTIVE"
+                    },
+                    "exchange": {
+                      "availableToBack": [
+                        {
+                          "price": 26,
+                          "size": 33.72
+                        },
+                        {
+                          "price": 20,
+                          "size": 54.47
+                        }
+                      ],
+                      "availableToLay": [
+                        {
+                          "price": 990,
+                          "size": 18.2
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "selectionId": 53613985,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Past Lives",
+                      "metadata": {
+                        "runnerId": "53613985"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 9,
+                      "lastPriceTraded": 250,
+                      "totalMatched": 0,
+                      "status": "ACTIVE"
+                    },
+                    "exchange": {
+                      "availableToBack": [
+                        {
+                          "price": 12.5,
+                          "size": 59.32
+                        },
+                        {
+                          "price": 1.02,
+                          "size": 70.02
+                        }
+                      ],
+                      "availableToLay": [
+                        {
+                          "price": 950,
+                          "size": 9.46
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "selectionId": 2277540,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Maestro",
+                      "metadata": {
+                        "runnerId": "2277540"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 10,
+                      "lastPriceTraded": 540,
+                      "totalMatched": 0,
+                      "status": "ACTIVE"
+                    },
+                    "exchange": {
+                      "availableToBack": [
+                        {
+                          "price": 65,
+                          "size": 37.76
+                        },
+                        {
+                          "price": 60,
+                          "size": 21.79
+                        }
+                      ],
+                      "availableToLay": [
+                        {
+                          "price": 950,
+                          "size": 12.79
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "selectionId": 43799784,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "The Color Purple",
+                      "metadata": {
+                        "runnerId": "43799784"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 11,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 51562987,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Wonka",
+                      "metadata": {
+                        "runnerId": "51562987"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 12,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 51562998,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Dune: Part Two",
+                      "metadata": {
+                        "runnerId": "51562998"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 13,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 43800004,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "The Killer",
+                      "metadata": {
+                        "runnerId": "43800004"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 14,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 53614387,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "May December",
+                      "metadata": {
+                        "runnerId": "53614387"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 15,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 59086641,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Napoleon",
+                      "metadata": {
+                        "runnerId": "59086641"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 16,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 53613971,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Saltburn",
+                      "metadata": {
+                        "runnerId": "53613971"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 17,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 53614397,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Blitz",
+                      "metadata": {
+                        "runnerId": "53614397"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 18,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 154953,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Lee",
+                      "metadata": {
+                        "runnerId": "154953"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 19,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 59086639,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "SpiderMan:AcrosstheSpiderverse",
+                      "metadata": {
+                        "runnerId": "59086639"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 20,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 43799999,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Asteroid City",
+                      "metadata": {
+                        "runnerId": "43799999"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 21,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 53613983,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Air",
+                      "metadata": {
+                        "runnerId": "53613983"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 22,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 53613976,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Ferrari",
+                      "metadata": {
+                        "runnerId": "53613976"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 23,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 53613977,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "AND",
+                      "metadata": {
+                        "runnerId": "53613977"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 24,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 53614399,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Foe",
+                      "metadata": {
+                        "runnerId": "53614399"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 25,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 28015367,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Next Goal Wins",
+                      "metadata": {
+                        "runnerId": "28015367"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 26,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 43799779,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Rustin",
+                      "metadata": {
+                        "runnerId": "43799779"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 27,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 53613986,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Challengers",
+                      "metadata": {
+                        "runnerId": "53613986"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 28,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 53613992,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "How Do You Live?",
+                      "metadata": {
+                        "runnerId": "53613992"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 29,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 53614403,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Priscilla",
+                      "metadata": {
+                        "runnerId": "53614403"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 30,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 53614482,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Stone Mattress",
+                      "metadata": {
+                        "runnerId": "53614482"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 31,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 53613981,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "The Bikeriders",
+                      "metadata": {
+                        "runnerId": "53613981"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 32,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 59086648,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "here",
+                      "metadata": {
+                        "runnerId": "59086648"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 33,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 51434725,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "sTraNgeRs",
+                      "metadata": {
+                        "runnerId": "51434725"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 34,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 58600993,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Sound Of Freedom",
+                      "metadata": {
+                        "runnerId": "58600993"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 35,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 59086653,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Wonderful Story of Henry Sugar",
+                      "metadata": {
+                        "runnerId": "59086653"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 36,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 53613980,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "The Outrun",
+                      "metadata": {
+                        "runnerId": "53613980"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 37,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 53613982,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Leave the World Behind",
+                      "metadata": {
+                        "runnerId": "53613982"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 38,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 43799776,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Spaceman",
+                      "metadata": {
+                        "runnerId": "43799776"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 39,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  },
+                  {
+                    "selectionId": 59086654,
+                    "handicap": 0,
+                    "description": {
+                      "runnerName": "Beau Is Afraid",
+                      "metadata": {
+                        "runnerId": "59086654"
+                      }
+                    },
+                    "state": {
+                      "sortPriority": 40,
+                      "status": "LOSER"
+                    },
+                    "exchange": {}
+                  }
+                ],
+                "isMarketDataVirtual": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "indicative": false
+  }
