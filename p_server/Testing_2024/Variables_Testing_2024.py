@@ -48,7 +48,7 @@ def full_stack():
     return stackstr
 
 try:
-    eboconfig = imp.load_source("eboconfig", "./p_server/eboconfig.py")
+    eboconfig = imp.load_source("eboconfig", "EBO-Test/p_server/eboconfig.py")
 except:
     print ("Error: Need a valid ./p_server/eboconfig.py file. See ./p_server/eboconfig.py.example for reference.")
     raise
