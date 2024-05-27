@@ -1,0 +1,13 @@
+#map {
+    width: 900px;
+    height: 650px;
+    margin: 0 auto;
+}
+
+/* RESPONSIVE MAP FOR LARGER SCREENS */
+@media (min-width: 1200px) {
+    #map {
+        width: 700px;
+        height: 450px;
+    }
+}
